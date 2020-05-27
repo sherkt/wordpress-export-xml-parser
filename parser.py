@@ -51,11 +51,7 @@ def parse_posts(input_file):
 		post_author = 2 # you will need to modify this to match your author ID
 		post_date = item.find('wp:post_date', ns).text
 		post_date_gmt = item.find('wp:post_date_gmt', ns).text
-		try:
-			post_content = item.find('content:encoded', ns).text
-		except AttributeError:
-			print('err')
-			post_content = ''
+		post_content = item.find('content:encoded', ns).text
 		post_title = item.find('title', ns).text
 		post_excerpt = item.find('excerpt:encoded', ns).text
 		post_status = item.find('wp:status', ns).text
